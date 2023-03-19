@@ -45,11 +45,11 @@ def main():
 
     temp = input()
 
-    if temp == "I":
+    if "I" in temp:
         n = int(input())
         data = list(map(int, input().split()))
 
-    elif temp == "F":
+    elif "F" in temp:
         fname = input()
         if fname != "a":
             f = open("./tests/"+fname, "r")
