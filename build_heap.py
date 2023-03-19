@@ -1,12 +1,10 @@
 # python3
-def parent(i):
-    return (i - 1) // 2
 
-def left_child(i):
-    return 2 * i + 1
+def left_child(a):
+    return 2 * a + 1
 
-def right_child(i):
-    return 2 * i + 2
+def right_child(a):
+    return 2 * a + 2
 
 def build_heap(data):
     swaps = []
@@ -15,23 +13,25 @@ def build_heap(data):
 
     length = len(data)
     for i in range(length // 2, -1, -1):
-        order_heap(data, i, swaps)
+        order_heap(i, data, swaps)
 
     return swaps
 
-def order_heap(data, i, swaps):
+def order_heap(a, data, swaps):
 
-    max_index = i
-    left = left_child(i)
-    if left < len(data) and data[left] < data[max_index]:
-        max_index = left
-    right = right_child(i)
-    if right < len(data) and data[right] < data[max_index]:
-        max_index = right
-    if i != max_index:
-        data[i], data[max_index] = data[max_index], data[i]
-        swaps.append((i, max_index))
-        sift_down(data, max_index, swaps)
+    length = len(data)
+    constraint = a
+
+    if left_child(a) < length and data[left_child(a)] < data[constraint]:
+        constraint = left_child(a)
+
+    if right_child(a) < length and data[right_child(a)] < data[constraint]:
+        constraint = right_child(a)
+
+    if a != constraint:
+        data[a], data[constraint] = data[constraint], data[a]
+        swaps.append((a, constraint))
+        order_heap(constraint, data, swaps)
 
 def main():
     
@@ -51,10 +51,10 @@ def main():
     elif "F" in temp:
         fname = input()
         if fname != "a":
-            f = open("./tests/"+fname, "r")
+            s = open("./tests/"+fname, "r")
             n = int(f.readline())
-            data = list(map(int, f.readline().split()))
-            f.close()
+            data = list(map(int, s.readline().split()))
+            s.close()
 
 
     # checks if lenght of data is the same as the said lenght
