@@ -51,10 +51,10 @@ def main():
     elif "F" in temp:
         fname = input()
         if fname != "a":
-            s = open("./tests/"+fname, "r")
+            f = open("./tests/"+fname, "r")
             n = int(f.readline())
-            data = list(map(int, s.readline().split()))
-            s.close()
+            data = list(map(int, f.readline().split()))
+            f.close()
 
 
     # checks if lenght of data is the same as the said lenght
