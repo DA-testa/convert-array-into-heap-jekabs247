@@ -1,4 +1,5 @@
 # python3
+
 #Jēkabs Kindzulis, 221RDC047, 18.gr
 
 def l_child(a):
