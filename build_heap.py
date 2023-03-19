@@ -1,9 +1,9 @@
 # python3
 
-def left_child(a):
+def l_child(a):
     return 2 * a + 1
 
-def right_child(a):
+def r_child(a):
     return 2 * a + 2
 
 def build_heap(data):
@@ -22,11 +22,11 @@ def order_heap(a, data, swaps):
     length = len(data)
     constraint = a
 
-    if left_child(a) < length and data[left_child(a)] < data[constraint]:
+    if data[l_child(a)] < data[constraint] and l_child(a) < length:
         constraint = left_child(a)
 
-    if right_child(a) < length and data[right_child(a)] < data[constraint]:
-        constraint = right_child(a)
+    if data[r_child(a)] < data[constraint] and r_child(a) < length:
+        constraint = r_child(a)
 
     if a != constraint:
         data[a], data[constraint] = data[constraint], data[a]
