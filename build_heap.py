@@ -23,10 +23,10 @@ def order_heap(a, data, swaps):
     length = len(data)
     constraint = a
 
-    if data[l_child(a)] < data[constraint] and l_child(a) < length:
+    if l_child(a) < length and data[l_child(a)] < data[constraint]:
         constraint = l_child(a)
 
-    if data[r_child(a)] < data[constraint] and r_child(a) < length:
+    if r_child(a) < length and data[r_child(a)] < data[constraint]:
         constraint = r_child(a)
 
     if a != constraint:
