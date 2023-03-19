@@ -1,4 +1,5 @@
 # python3
+#Jēkabs Kindzulis, 221RDC047, 18.gr
 
 def l_child(a):
     return 2 * a + 1
@@ -23,7 +24,7 @@ def order_heap(a, data, swaps):
     constraint = a
 
     if data[l_child(a)] < data[constraint] and l_child(a) < length:
-        constraint = left_child(a)
+        constraint = l_child(a)
 
     if data[r_child(a)] < data[constraint] and r_child(a) < length:
         constraint = r_child(a)
